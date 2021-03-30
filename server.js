@@ -35,6 +35,11 @@ app.get('/all',(req,res)=>{
 app.post('/addjournal',(req,res)=>{
     const data = req.body;
     try{
+        // The wording of the project wasn't clear, i wasn't sure if
+        // I should replace the previous entry or preserve it.
+        // I also didn't know how which property name should I 
+        // use if I was supposed to preserve previous entries so 
+        // I just replaced the previous entry.
         projectData = {
             temprature:data.temprature,
             date:data.date,
@@ -47,6 +52,9 @@ app.post('/addjournal',(req,res)=>{
         }));
     }
     catch(err){
+        res.send(JSON.stringify({
+            status:'error'
+        }));
         throw err;
     }
 });
