@@ -5,7 +5,7 @@ const button = document.getElementById('generate');
 const apiKey = 'b9c3560888951e57746b531dd9501b40';
 const message = document.querySelector('.message');
 const getWeather = async zip => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}`;     
+    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}&units=metric`;     
     const response = await fetch(url);
     if (response.status===404){
         message.innerHTML = 'Error 404!';
@@ -26,7 +26,7 @@ const getWeather = async zip => {
     }
     return {
         date:newDate,
-        temprature:Number((data['main']['temp']-273).toFixed(1)),
+        temprature:Number((data['main']['temp']).toFixed(1)),
     };
 }; 
 
@@ -87,7 +87,7 @@ const updateUI = async () => {
 const activateButton = () => {
     const zip = document.getElementById('zip').value;
     const content = document.getElementById('feelings').value;
-    if (zip.length >= 5 && content.length >=20){
+    if (zip.length >= 5){
         button.disabled = false;
     }
     else
@@ -122,4 +122,3 @@ const preventNonNumbers = event => {
 };
 
 document.getElementById('zip').addEventListener('input',activateButton);
-document.getElementById('feelings').addEventListener('input',activateButton);
