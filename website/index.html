@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Weather Journal</title>
+   <link rel="stylesheet" type="text/css"
+      href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <div id="app">
+      <header>
+         <img src="header.jpg">
+         <h1 class="headline">
+            Weather Journal App
+         </h1>
+      </header>
+      <div class="form">
+         <h2 class="form__title">
+            What do you feel about today's weather?
+         </h2>
+         <div class="holder zip">
+            <label for="zip">Zipcode</label>
+            <br>
+            <input type="number" id="zip" placeholder="Enter zip code here" onkeypress="preventNonNumbers(event)">
+         </div>
+         <div class="holder feel last">
+            <label for="feelings">How are you feeling today?</label>
+            <br>
+            <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9"
+               cols="50"></textarea>
+            <br>
+            <button id="generate" disabled> Generate </button>
+            <div class="message"></div>
+         </div>
+      </div>
+      <div class="holder entry">
+         <h2 class="entry__title">Most Recent Entry</h2>
+         <div id="entryHolder">
+            <div class="entry__info" id="date">
+               <span class="entry__info__title">
+                  Date:
+               </span>
+               <span class="entry__data">
+
+               </span>
+            </div>
+            <div class="entry__info" id="temp">
+               <span class="entry__info__title">
+                  Temperature:
+               </span>
+               <span class="entry__data entry__data__temp">
+
+               </span>
+            </div>
+            <div class="entry__info" id="content">
+               <span class="entry__info__title">
+                  User's Journal:
+               </span>
+               <span class="entry__data">
+
+               </span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="app.js" type="text/javascript"></script>
+</body>
+</html>
